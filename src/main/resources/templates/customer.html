@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="hhtp://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>customer</title>
+</head>
+<style>
+    body
+    {
+        text-align: center;
+        background-color: black;
+        color: white
+    }
+    li
+    {
+        padding: 10px;
+    }
+</style>
+<body>
+    <ul th:object="${customer}">
+        <li>
+            <div th:text="'ID: ' +*{id}">Richard</div>
+        </li>
+        <li>
+            <div th:text="'First name : '+ *{firstName}">Richard</div>
+        </li>
+        <li>Last name:
+            <div th:text="${customer.lastName}">Ros</div>
+        </li>
+        <li>Adress:
+            <div th:text="${customer.addressLine}">street</div>
+        </li>
+        <li>Email:
+            <div th:text="${customer.email}">@gmsil.com</div>
+        </li>
+        <li>Phone:
+            <div th:text="${customer.phoneNumber}"> 783733722</div>
+        </li>
+        <li>Zip Code:
+            <div th:text="${customer.zipCode}">2331</div>
+        </li>
+        <li>City:
+            <div th:text="${customer.city}">Westworld</div>
+        </li>
+    </ul>
+</body>
+</html>

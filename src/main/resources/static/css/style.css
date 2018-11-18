@@ -1,0 +1,24 @@
+body
+{
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-family: 'Arial';
+    font-variant: small-caps;
+}
+li
+{
+    padding: 10px;
+}
+table
+{
+    border: solid 2px white;
+}
+th
+{
+    border: solid 2px white;
+}
+td
+{
+    border: solid 2px white;
+}
