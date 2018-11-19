@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="hhtp://www.thymeleaf.org">
+<link rel="stylesheet" href=".../static/css/style.css"
+      th:href="@{/css/style.css}" media="screen"/>
 <head>
     <meta charset="UTF-8">
     <title>Customer Edit</title>
 </head>
 <body>
-    <h3>Edition</h3>
+    <h3 th:text="${title}"/></h3>
+    <div class="forms">
     <form method="post"
           action="#"
           th:action="@{/customer/update}"
@@ -46,9 +49,15 @@
                 <td><input type="text" th:field="*{addressLine}"/></td>
             </tr>
             <tr>
-                <td colspan="2"><button type="submit">Update customer</button> </td>
+                <td>City</td>
+                <td><input type="text" th:field="*{city}"/></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit" th:text="${button}" >
+                </button> </td>
             </tr>
         </table>
         </form>
+    </div>
 </body>
 </html>

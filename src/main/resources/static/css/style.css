@@ -20,5 +20,33 @@ th
 }
 td
 {
-    border: solid 2px white;
+    border: solid 1px white;
+}
+li
+{
+    padding: 10px;
+}
+a:hover
+{
+    color: aquamarine
+}
+navibar
+{
+    padding: 20px; allign: left; border-bottom: white solid 1px; margin: 15px
+}
+a
+{
+    color: aqua; text-decoration: none
+}
+.forms
+{
+    align:center;
+    position: fixed;
+    left: 38%;
+}
+.tables
+{
+    position: fixed;
+    left:35%;
+    float: right;
 }

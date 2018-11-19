@@ -3,26 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>customer</title>
+    <link rel="stylesheet" href=".../static/css/style.css"
+          th:href="@{/css/style.css}" media="screen"/>
 </head>
-<style>
-    body
-    {
-        text-align: center;
-        background-color: black;
-        color: white
-    }
-    li
-    {
-        padding: 10px;
-    }
-</style>
 <body>
-    <ul th:object="${customer}">
-        <li>
-            <div th:text="'ID: ' +*{id}">Richard</div>
+<div class="navibar">
+    <a href="/customer/all">Back to manage</a>
+</div>
+    <ul >
+        <li>Id:
+            <div th:text="${customer.id}">Richard</div>
         </li>
-        <li>
-            <div th:text="'First name : '+ *{firstName}">Richard</div>
+        <li>First name:
+            <div th:text="${customer.firstName}">Richard</div>
         </li>
         <li>Last name:
             <div th:text="${customer.lastName}">Ros</div>

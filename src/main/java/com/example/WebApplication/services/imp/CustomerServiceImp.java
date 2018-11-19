@@ -1,7 +1,9 @@
 package com.example.WebApplication.services.imp;
 
 import com.example.WebApplication.domain.Customer;
+import com.example.WebApplication.repositories.CustomerRepository;
 import com.example.WebApplication.services.CustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -10,6 +12,8 @@ import java.util.*;
 public class CustomerServiceImp implements CustomerService {
     private Map<Integer, Customer> customers;
 
+    @Autowired
+    private CustomerRepository repo;
     public CustomerServiceImp() {
         customers = new HashMap<>();
         for(int i = 2; i < 52; i++) {
@@ -33,29 +37,36 @@ public class CustomerServiceImp implements CustomerService {
 
     @Override
     public Customer getOne(Integer id) {
-        return customers.get(id);
+        return repo.findById(id).get();
     }
 
     @Override
     public List<Customer> getAll() {
-        return new LinkedList<>(customers.values());
+        Iterable<Customer> all = repo.findAll();
+
+        List<Customer> list =  new LinkedList<>();
+        for (Customer c: all) {
+            list.add(c);
+        }
+        return list;
     }
 
     @Override
     public Customer update(Customer customer) {
-        customers.put(customer.getId(), customer);
-        return customers.get(customer.getId());
+        Customer one = getOne(customer.getId());
+        customer.setId(one.getId());
+        repo.save(customer);
+        return customer;
     }
 
     @Override
     public void delete(Integer id) {
-        customers.remove(id);
+        repo.deleteById(id);
     }
 
     @Override
     public Customer add(Customer customer) {
-        customer.setId(generatorIdKey());
-        customers.put(customer.getId(), customer);
+        repo.save(customer);
         return customer;
     }
     private Integer generatorIdKey() {

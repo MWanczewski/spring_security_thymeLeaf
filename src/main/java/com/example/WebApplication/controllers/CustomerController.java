@@ -57,7 +57,7 @@ public class CustomerController {
 
            update = service.update(customer);
         } else {
-            update = service.add(customer);;
+            update = service.add(customer);
         }
         return "redirect:/customer/"+ update.getId();
     }
