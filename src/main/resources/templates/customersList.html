@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="hhtp://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html lang="en" xmlns:th="hhtp://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8" >
     <title>Customers list</title>
@@ -10,12 +10,13 @@
 <body>
 <a href="/customer/new">Add new customer </a>
 <p>
-                <span sec:authorize="isAuthenticated()" style="display: inline-block;">
-                    | Logged user: <span sec:authentication="name"></span> |
-                    Roles: <span sec:authentication="principal.authorities"></span> |
-                    <a th:href="@{/logout}">Sign Out</a>
-                </span>
+    <span sec:authorize="isAuthenticated()" style="display: inline-block;">
+    | Logged user: <span sec:authentication="name"></span> |
+    Roles: <span sec:authentication="principal.authorities"></span> |
+    <a th:href="@{/logout}">Sign Out</a>
+    </span>
 </p>
+
 <div class="tables">
     <table style="align:center">
         <tr>
@@ -26,7 +27,7 @@
         </tr>
         <tr th:each="customer : ${customers}">
             <td th:text="${customer.id}">33</td>
-            <td th:text="${customer.firstName} + ' ' + ${customer.lastName}">Damian KozoYebca</td>
+            <td th:text="${customer.firstName} + ' ' + ${customer.lastName}"></td>
             <td>
                 <div th:text="${customer.phoneNumber}"></br>
                     Nr tel

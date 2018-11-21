@@ -20,7 +20,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                   "/css/**",
                         "/h2-console/**"
                 ).permitAll()
-                .antMatchers("/customer","/customer").hasRole("USER")
+                .antMatchers("/customer","/customer/all").hasRole("USER")
                 .anyRequest().authenticated().and().formLogin().permitAll()
                 .and().logout().invalidateHttpSession(true)
         .clearAuthentication(true)
@@ -44,6 +44,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .withUser( "manager" )
                 .password(encoder.encode("password"))
                 .roles("MANAGER");
+       auth.inMemoryAuthentication()
+               .withUser("user3")
+               .password(encoder.encode("password"))
+               .roles("USER");
     }
     @Bean
     public PasswordEncoder passwordEncoder(){
