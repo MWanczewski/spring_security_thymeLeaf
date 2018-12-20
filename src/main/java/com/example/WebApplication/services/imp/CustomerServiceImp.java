@@ -14,20 +14,21 @@ public class CustomerServiceImp implements CustomerService {
 
     @Autowired
     private CustomerRepository repo;
+
     public CustomerServiceImp() {
-        customers = new HashMap<>();
-        for(int i = 2; i < 52; i++) {
-            Customer customer = new Customer();
-            customer.setFirstName("Mark" + i);
-            customer.setLastName("Ros" + i);
-            customer.setAddressLine("Street" + i);
-            customer.setCity("Eastworld " + i);
-            customer.setId(i);
-            customer.setEmail(i + "@gmail.com");
-            customer.setZipCode("12-" + i);
-            customer.setPhoneNumber("403 304 12" + i);
-            customers.put(i, customer);
-        }
+//        customers = new HashMap<>();
+//        for(int i = 2; i < 52; i++) {
+//            Customer customer = new Customer();
+//            customer.setFirstName("Mark" + i);
+//            customer.setLastName("Ros" + i);
+//            customer.setAddressLine("Street" + i);
+//            customer.setCity("Eastworld " + i);
+//            customer.setId(i);
+//            customer.setEmail(i + "@gmail.com");
+//            customer.setZipCode("12-" + i);
+//            customer.setPhoneNumber("403 304 12" + i);
+//            customers.put(i, customer);
+//        }
     }
 
     @Override
@@ -54,7 +55,6 @@ public class CustomerServiceImp implements CustomerService {
     @Override
     public Customer update(Customer customer) {
         Customer one = getOne(customer.getId());
-        customer.setId(one.getId());
         repo.save(customer);
         return customer;
     }

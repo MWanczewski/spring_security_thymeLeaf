@@ -9,7 +9,13 @@
 <body>
     <h2> Welcome to my first web app</h2>
     <div th:if="${visitor != null}">
-        <h3 th:text="'Welcome: ' + ${visitor} + '!!!'"> Welcome John !!!</h3>
+        <h3 th:text="'Welcome: ' + ${visitor} + "> Welcome John</h3>
+    </div>
+<div>
+    <a href="/customer/all">Show Customers</a>
+</div>
+    <div>
+        <a href="/product/all">Show Products</a>
     </div>
 </body>
 </html>

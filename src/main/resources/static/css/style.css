@@ -50,3 +50,15 @@ a
     left:35%;
     float: right;
 }
+ul {
+    list-style-type: none;
+}
+table img
+{
+    width: 100px;
+    height: 70px;
+}
+td
+{
+    padding: 5px;
+}

@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.LinkedList;
+import java.util.List;
+
 @Entity
 public class Customer {
     @Id
@@ -18,11 +21,12 @@ public class Customer {
     private String addressLine;
     private String city;
     private String zipCode;
+   // private List<Product> products = new LinkedList<>();
+
+
 
     public Customer() {
     }
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
         return id;
     }
@@ -67,8 +71,8 @@ public class Customer {
         return addressLine;
     }
 
-    public void setAddressLine(String addresLine) {
-        this.addressLine = addresLine;
+    public void setAddressLine(String addressLine) {
+        this.addressLine = addressLine;
     }
 
     public String getCity() {
@@ -86,4 +90,12 @@ public class Customer {
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
     }
+    //public List<Product> getProducts() {
+      //  return products;
+   // }
+
+    //public void setProducts(List<Product> products) {
+        //this.products = products;
+   // }
+
 }

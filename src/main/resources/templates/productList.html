@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="hhtp://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8" >
+    <title>Product list list</title>
+    <link rel="stylesheet" href=".../static/css/style.css"
+          th:href="@{/css/style.css}" media="screen"/>
+</head>
+
+<body>
+<p>
+    <span sec:authorize="isAuthenticated()" style="display: inline-block;">
+    | Logged user: <span sec:authentication="name"></span> |
+    <a th:href="@{/logout}">Sign Out</a>
+    </span>
+</p>
+
+<div class="tables2">
+    <table>
+        <tr>
+            <th>Lp</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Image</th>
+            <th>quantity</th>
+            <th>Tools</th>
+        </tr>
+        <tr th:each="product : ${products}">
+            <td th:text="${product.id}"></td>
+            <td th:text="${product.description}"></td>
+            <td th:text="${product.price}"></td>
+            <td><img th:href="@{${product.imageUrl}}"/></td>
+            <td th:text="${product.quantity}"></td>
+            <td>
+                <!--<span sec:if="${principal.authorities == [ROLE_ADMIN]}">-->
+                    <!--<a th:text="${'/product/addToBucket/'+ product.id}}">Add to bucket-->
+                <!--</a></span>-->
+            </td>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

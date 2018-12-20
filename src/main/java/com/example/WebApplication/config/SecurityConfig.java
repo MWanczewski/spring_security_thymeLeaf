@@ -18,7 +18,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(
                   "/",
                   "/css/**",
-                        "/h2-console/**"
+                        "/h2-console/**",
+                        "/localhost3306/**",
+                        "/images/**"
                 ).permitAll()
                 .antMatchers("/customer","/customer/all").hasRole("USER")
                 .anyRequest().authenticated().and().formLogin().permitAll()

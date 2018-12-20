@@ -11,28 +11,28 @@
     <a href="/customer/all">Back to manage</a>
 </div>
     <ul >
-        <li>Id:
+        <li><b>Id:</b>
             <div th:text="${customer.id}">Richard</div>
         </li>
-        <li>First name:
+        <li><b>First name:</b>
             <div th:text="${customer.firstName}">Richard</div>
         </li>
-        <li>Last name:
-            <div th:text="${customer.lastName}">Ros</div>
+        <li th:text="${customer.lastName}">Last name:
+            <div >Ros</div>
         </li>
-        <li>Adress:
+        <li><b>Adress:</b>
             <div th:text="${customer.addressLine}">street</div>
         </li>
-        <li>Email:
+        <li><b>Email:</b>
             <div th:text="${customer.email}">@gmsil.com</div>
         </li>
-        <li>Phone:
+        <li><b>Phone:</b>
             <div th:text="${customer.phoneNumber}"> 783733722</div>
         </li>
-        <li>Zip Code:
+        <li><b>Zip Code:</b>
             <div th:text="${customer.zipCode}">2331</div>
         </li>
-        <li>City:
+        <li><b>City:</b>
             <div th:text="${customer.city}">Westworld</div>
         </li>
     </ul>
